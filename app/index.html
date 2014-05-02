@@ -1,27 +1,27 @@
 <!doctype html>
 <html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>blackbirdjs</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <link rel="shortcut icon" href="/favicon.ico">
-        <!-- build:css styles/vendor.css -->
-        <!-- bower:css -->
-        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
-        <!-- endbower -->
-        <!-- endbuild -->
-        <!-- build:css blackbirdjs/blackbird.css -->
-        <link rel="stylesheet" href="blackbirdjs/blackbird.css">
-        <!-- endbuild -->
-        <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
-        <!-- endbuild -->
-    </head>
-    <body>
-        <!--[if lt IE 10]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>blackbirdjs</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css blackbirdjs/blackbird.css -->
+    <link rel="stylesheet" href="blackbirdjs/blackbird.css">
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+</head>
+<body>
+    <!--[if lt IE 10]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
 <div class="container">
 <h1 class="page-header">blackbirdjs</h1>
@@ -29,7 +29,7 @@
 <div class="row">
     <div class="col-sm-4 col-sm-offset-1">
         <div class="list-group">
-            <a href="/" class="list-group-item jq-run" data-run="log#clear">
+            <a href="/" class="list-group-item jq-run" data-run="log:clear">
                 <h3 class="list-group-item-heading">clear</h3>
                 <p class="list-group-item-text">ログをクリアする（ショートカット：Alt + Shift + F2キー）</p>
             </a>
@@ -37,7 +37,7 @@
     </div>
     <div class="col-sm-4">
         <div class="list-group">
-            <a href="/" class="list-group-item jq-run" data-run="log#move">
+            <a href="/" class="list-group-item jq-run" data-run="log:move">
                 <h3 class="list-group-item-heading">move</h3>
                 <p class="list-group-item-text">ログウィンドウの位置を変更する（ショートカット：Shift + F2キー）</p>
             </a>
@@ -47,7 +47,7 @@
 <div class="row">
     <div class="col-sm-4 col-sm-offset-1">
         <div class="list-group">
-            <a href="/" class="list-group-item jq-run" data-run="log#resize">
+            <a href="/" class="list-group-item jq-run" data-run="log:resize">
                 <h3 class="list-group-item-heading">resize</h3>
                 <p class="list-group-item-text">ログウィンドウのサイズを変更する</p>
             </a>
@@ -55,7 +55,7 @@
     </div>
     <div class="col-sm-4">
         <div class="list-group">
-            <a href="/" class="list-group-item jq-run" data-run="log#toggle">
+            <a href="/" class="list-group-item jq-run" data-run="log:toggle">
                 <h3 class="list-group-item-heading">toggle</h3>
                 <p class="list-group-item-text">ログウィンドウの表示・非表示を切り替える（ショートカット：F2キー）</p>
             </a>
@@ -68,12 +68,12 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <p class="lead">テキストエリアにJavaScriptのプログラムを実際に書いて実行できます。</p>
-                <a href="/" class="btn btn-default jq-run" data-run="main#sample1">サンプル1</a>
-                <a href="/" class="btn btn-default jq-run" data-run="main#sample2">サンプル2</a>
-                <a href="/" class="btn btn-default jq-run" data-run="main#sample3">サンプル3</a>
+                <a href="/" class="btn btn-default jq-run" data-run="main:setSrc:#sample1">サンプル1</a>
+                <a href="/" class="btn btn-default jq-run" data-run="main:setSrc:#sample2">サンプル2</a>
+                <a href="/" class="btn btn-default jq-run" data-run="main:setSrc:#sample3">サンプル3</a>
                 <textarea id="src" class="form-control" cols="80" rows="8"></textarea>
-                <button class="btn btn-primary jq-run" data-run="main#runSrc">実行</button>
-                <button class="btn btn-warning jq-run" data-run="main#clearSrc">消去</button>
+                <button class="btn btn-primary jq-run" data-run="main:runSrc">実行</button>
+                <button class="btn btn-warning jq-run" data-run="main:clearSrc">消去</button>
                 <h3>出力</h3>
                 <pre id="stdout"></pre>
                 <h3>エラー</h3>
@@ -83,8 +83,7 @@
     </div>
 </div>
 
-<script type="text/x-template" id="sample1">
-p('debug');
+<script type="text/x-template" id="sample1">p('debug');
 log.debug( 'this is a debug message' );
 p('info');
 log.info( 'this is an info message' );
@@ -93,8 +92,7 @@ log.warn( 'this is a warning message' );
 p('error');
 log.error( 'this is an error message' );
 </script>
-<script type="text/x-template" id="sample2">
-log.profile( 'generate test string' );
+<script type="text/x-template" id="sample2">log.profile( 'generate test string' );
 
 var testContent = '';
 for ( var i = 0; i < 3000; i++ ) {
@@ -103,8 +101,7 @@ for ( var i = 0; i < 3000; i++ ) {
 
 log.profile( 'generate test string' );
 </script>
-<script type="text/x-template" id="sample3">
-// 全体ループ
+<script type="text/x-template" id="sample3">// 全体ループ
 log.profile('total');
 
 // ループ１
@@ -122,18 +119,18 @@ log.profile('total');
 
 </div>
 
-        <!-- build:js scripts/vendor.js -->
-        <!-- bower:js -->
-        <script src="../bower_components/jquery/dist/jquery.js"></script>
-        <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
-        <!-- build:js blackbirdjs/blackbird.js -->
-        <script src="blackbirdjs/blackbird.js"></script>
-        <!-- endbuild -->
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js blackbirdjs/blackbird.js -->
+    <script src="blackbirdjs/blackbird.js"></script>
+    <!-- endbuild -->
 
-        <!-- build:js({app,.tmp}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

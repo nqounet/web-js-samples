@@ -19,11 +19,11 @@
     printStdout = function(text){
         $stdout.append(text + '<br/>');
     },
-    run = function(module, method){
+    run = function(module, method, args){
         var func = modules[module][method];
         console.debug('func:', func);
         if (typeof func === 'function') {
-            func();
+            func(args);
         }
         else {
             console.error('function not defined.');
@@ -34,7 +34,8 @@
     eventRunButton = function(e){
         e.preventDefault();
         var $this = $(e.currentTarget),
-        args = $this.data('run').split('#');
+        args = $this.data('run').split(':');
+        console.debug('args:', args);
         run.apply(null, args);
     },
     runSrc = function(){
@@ -55,15 +56,6 @@
     setSrc = function(selector){
         $src.val($(selector).text());
     },
-    sample1 = function(){
-        setSrc('#sample1');
-    },
-    sample2 = function(){
-        setSrc('#sample2');
-    },
-    sample3 = function(){
-        setSrc('#sample3');
-    },
     setHandlers = function(){
         $runButtons.on('click', eventRunButton);
     },
@@ -71,9 +63,7 @@
         setVars();
         setHandlers();
         modules.main = {
-            sample1: sample1,
-            sample2: sample2,
-            sample3: sample3,
+            setSrc: setSrc,
             runSrc: runSrc,
             clearSrc: clearSrc
         };
