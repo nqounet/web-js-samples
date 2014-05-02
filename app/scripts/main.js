@@ -41,7 +41,7 @@
         $stdout.empty();
         $stderr.empty();
         try {
-            eval($src.val());
+            (new Function($src.val())());
         }
         catch (e) {
             $stderr.text(e);
