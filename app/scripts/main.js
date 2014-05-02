@@ -52,17 +52,17 @@
         $stderr.empty();
         $src.val('');
     },
-    setSrc = function(text){
-        $src.val(text);
+    setSrc = function(selector){
+        $src.val($(selector).text());
     },
     sample1 = function(){
-        setSrc("p('debug');\nlog.debug( 'this is a debug message' );\np('info');\nlog.info( 'this is an info message' );\np('warning');\nlog.warn( 'this is a warning message' );\np('error');\nlog.error( 'this is an error message' );\n");
+        setSrc('#sample1');
     },
     sample2 = function(){
-        setSrc("log.profile( 'generate test string' );\n\nvar testContent = '';\nfor ( var i = 0; i < 3000; i++ ) {\n  testContent += '-';\n}\n\nlog.profile( 'generate test string' );");
+        setSrc('#sample2');
     },
     sample3 = function(){
-        setSrc("// 全体ループ\nlog.profile('total');\n\n// ループ１\nlog.profile('loop1');\nfor (var i = 0; i < 1000000; i++) {}\nlog.profile('loop1');\n\n// ループ２\nlog.profile('loop2');\nfor (var i = 0; i < 1000000; i++) {}\nlog.profile('loop2');\n\nlog.profile('total');\n");
+        setSrc('#sample3');
     },
     setHandlers = function(){
         $runButtons.on('click', eventRunButton);

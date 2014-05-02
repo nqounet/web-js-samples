@@ -83,6 +83,43 @@
     </div>
 </div>
 
+<pre class="hidden" id="sample1">
+p('debug');
+log.debug( 'this is a debug message' );
+p('info');
+log.info( 'this is an info message' );
+p('warning');
+log.warn( 'this is a warning message' );
+p('error');
+log.error( 'this is an error message' );
+</pre>
+<pre class="hidden" id="sample2">
+log.profile( 'generate test string' );
+
+var testContent = '';
+for ( var i = 0; i < 3000; i++ ) {
+  testContent += '-';
+}
+
+log.profile( 'generate test string' );
+</pre>
+<pre class="hidden" id="sample3">
+// 全体ループ
+log.profile('total');
+
+// ループ１
+log.profile('loop1');
+for (var i = 0; i < 1000000; i++) {}
+log.profile('loop1');
+
+// ループ２
+log.profile('loop2');
+for (var i = 0; i < 1000000; i++) {}
+log.profile('loop2');
+
+log.profile('total');
+</pre>
+
 </div>
 
         <!-- build:js scripts/vendor.js -->
