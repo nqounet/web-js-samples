@@ -304,7 +304,7 @@ module.exports = function (grunt) {
                 methods: ['trace', 'debug']
             },
             dist: {
-                src: ".tmp/concat/scripts/*.js"
+                src: '.tmp/concat/scripts/*.js'
             }
         },
 
