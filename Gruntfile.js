@@ -326,6 +326,13 @@ module.exports = function (grunt) {
             }
         },
 
+        release: {
+            options: {
+                tagName: 'v<%= version %>',
+                npm: false
+            }
+        },
+
         rsync: {
             options: {
                 src: '<%= config.dist %>/',
