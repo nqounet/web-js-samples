@@ -2,17 +2,14 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>blackbirdjs</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <title>サンプル集</title>
+    <meta name="description" content="JavaScriptのサンプル集">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" href="/favicon.ico">
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css blackbirdjs/blackbird.css -->
-    <link rel="stylesheet" href="blackbirdjs/blackbird.css">
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
@@ -24,98 +21,25 @@
     <![endif]-->
 
 <div class="container">
-<h1 class="page-header">blackbirdjs</h1>
-<h2 class="page-header">Blackbirdに対するコマンド</h2>
-<div class="row">
-    <div class="col-sm-4 col-sm-offset-1">
-        <div class="list-group">
-            <a href="/" class="list-group-item jq-run" data-run="log:clear">
-                <h3 class="list-group-item-heading">clear</h3>
-                <p class="list-group-item-text">ログをクリアする（ショートカット：Alt + Shift + F2キー）</p>
-            </a>
-        </div>
+
+    <header>
+        <h1 class="page-header">JavaScript Samples List</h1>
+        <ol class="breadcrumb">
+          <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+          <li class="active">Samples</li>
+        </ol>
+    </header>
+
+    <div class="list-group">
+        <a href="blackbird.html" class="list-group-item">
+            <h3 class="list-group-item-heading">Blackbird.js</h3>
+            <p class="list-group-item-text">Blackbird logging utility</p>
+        </a>
     </div>
-    <div class="col-sm-4">
-        <div class="list-group">
-            <a href="/" class="list-group-item jq-run" data-run="log:move">
-                <h3 class="list-group-item-heading">move</h3>
-                <p class="list-group-item-text">ログウィンドウの位置を変更する（ショートカット：Shift + F2キー）</p>
-            </a>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-4 col-sm-offset-1">
-        <div class="list-group">
-            <a href="/" class="list-group-item jq-run" data-run="log:resize">
-                <h3 class="list-group-item-heading">resize</h3>
-                <p class="list-group-item-text">ログウィンドウのサイズを変更する</p>
-            </a>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="list-group">
-            <a href="/" class="list-group-item jq-run" data-run="log:toggle">
-                <h3 class="list-group-item-heading">toggle</h3>
-                <p class="list-group-item-text">ログウィンドウの表示・非表示を切り替える（ショートカット：F2キー）</p>
-            </a>
-        </div>
-    </div>
-</div>
-<h2 class="page-header">プログラムを実際に作って実行してみる</h2>
-<div class="row">
-    <div class="col-sm-9">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <p class="lead">テキストエリアにJavaScriptのプログラムを実際に書いて実行できます。</p>
-                <a href="/" class="btn btn-default jq-run" data-run="main:setSrc:#sample1">サンプル1</a>
-                <a href="/" class="btn btn-default jq-run" data-run="main:setSrc:#sample2">サンプル2</a>
-                <a href="/" class="btn btn-default jq-run" data-run="main:setSrc:#sample3">サンプル3</a>
-                <textarea id="src" class="form-control" cols="80" rows="8"></textarea>
-                <button class="btn btn-primary jq-run" data-run="main:runSrc">実行</button>
-                <button class="btn btn-warning jq-run" data-run="main:clearSrc">消去</button>
-                <h3>出力</h3>
-                <pre id="stdout"></pre>
-                <h3>エラー</h3>
-                <pre id="stderr"></pre>
-            </div>
-        </div>
-    </div>
-</div>
 
-<script type="text/x-template" id="sample1">p('debug');
-log.debug( 'this is a debug message' );
-p('info');
-log.info( 'this is an info message' );
-p('warning');
-log.warn( 'this is a warning message' );
-p('error');
-log.error( 'this is an error message' );
-</script>
-<script type="text/x-template" id="sample2">log.profile( 'generate test string' );
-
-var testContent = '';
-for ( var i = 0; i < 3000; i++ ) {
-  testContent += '-';
-}
-
-log.profile( 'generate test string' );
-</script>
-<script type="text/x-template" id="sample3">// 全体ループ
-log.profile('total');
-
-// ループ１
-log.profile('loop1');
-for (var i = 0; i < 1000000; i++) {}
-log.profile('loop1');
-
-// ループ２
-log.profile('loop2');
-for (var i = 0; i < 1000000; i++) {}
-log.profile('loop2');
-
-log.profile('total');
-</script>
+    <footer>
+        <h4>&copy; @nqounet <small class="version">{{pkg.version}}</small></h4>
+    </footer>
 
 </div>
 
@@ -125,12 +49,19 @@ log.profile('total');
     <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    <!-- build:js blackbirdjs/blackbird.js -->
-    <script src="blackbirdjs/blackbird.js"></script>
-    <!-- endbuild -->
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-3538047-6', 'nqou.net');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>
