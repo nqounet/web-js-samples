@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>blackbirdjs</title>
+    <title>Blackbird.js | JavaScript Samples | nqou.net</title>
     <meta name="description" content="JavaScriptのライブラリ、blackbird.jsを使ってみた">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" href="/favicon.ico">
@@ -14,9 +14,8 @@
     <!-- build:css blackbirdjs/blackbird.css -->
     <link rel="stylesheet" href="blackbirdjs/blackbird.css">
     <!-- endbuild -->
-    <!-- build:css(.tmp) styles/blackbird.css -->
+    <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/blackbird.css">
     <!-- endbuild -->
 </head>
 <body>
@@ -77,10 +76,13 @@
     <div class="col-sm-9">
         <div class="panel panel-default">
             <div class="panel-body">
-                <p class="lead">テキストエリアにJavaScriptのプログラムを実際に書いて実行できます。</p>
+                <p>テキストエリアにJavaScriptのプログラムを実際に書いて実行できます。</p>
+                <p>画面上に「Hello!」と表示された黒いエリアがない場合は「F2キー」を押すと表示されます。</p>
                 <a href="/" class="btn btn-default jq-run" data-run="main:setSrc:#sample1">サンプル1</a>
                 <a href="/" class="btn btn-default jq-run" data-run="main:setSrc:#sample2">サンプル2</a>
                 <a href="/" class="btn btn-default jq-run" data-run="main:setSrc:#sample3">サンプル3</a>
+                <a href="/" class="btn btn-default jq-run" data-run="main:setSrc:#sample4">サンプル4</a>
+                <a href="/" class="btn btn-default jq-run" data-run="main:setSrc:#sample5">サンプル5</a>
                 <textarea id="src" class="form-control" cols="80" rows="8"></textarea>
                 <button class="btn btn-primary jq-run" data-run="main:runSrc">実行</button>
                 <button class="btn btn-warning jq-run" data-run="main:clearSrc">消去</button>
@@ -102,13 +104,13 @@
 </div><!-- /.container -->
 
 <script type="text/x-template" id="sample1">p('debug');
-log.debug( 'this is a debug message' );
+log.debug( 'debug message' );
 p('info');
-log.info( 'this is an info message' );
+log.info( 'info message' );
 p('warning');
-log.warn( 'this is a warning message' );
+log.warn( 'warning message' );
 p('error');
-log.error( 'this is an error message' );
+log.error( 'error message' );
 </script>
 
 <script type="text/x-template" id="sample2">log.profile( 'generate test string' );
@@ -133,6 +135,27 @@ log.profile('loop1');
 log.profile('loop2');
 for (var i = 0; i < 1000000; i++) {}
 log.profile('loop2');
+
+log.profile('total');
+</script>
+
+<script type="text/x-template" id="sample4">// setTimeout
+log.profile('total');
+
+setTimeout(function(){
+    log.profile('setTimeout');
+}, 1000);
+log.profile('setTimeout');
+
+log.profile('total');
+</script>
+
+<script type="text/x-template" id="sample5">// jQuery AJAX
+log.profile('total');
+
+$.get('./index.html', function(){
+    log.debug('index.html loaded.');
+});
 
 log.profile('total');
 </script>

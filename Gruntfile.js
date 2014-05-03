@@ -23,6 +23,8 @@ module.exports = function (grunt) {
 
     // Define the configuration for all the tasks
     grunt.initConfig({
+        // Package settings
+        pkg: grunt.file.readJSON('package.json'),
 
         // Project settings
         config: config,
@@ -313,6 +315,17 @@ module.exports = function (grunt) {
             }
         },
 
+        replace: {
+            siteInformation: {
+                src: ['<%= config.dist %>/*.html'],
+                dest: '<%= config.dist %>/',
+                replacements: [{
+                    from: '{{pkg.version}}',
+                    to: 'JavaScript Samples v<%= pkg.version %>'
+                }]
+            }
+        },
+
         rsync: {
             options: {
                 src: '<%= config.dist %>/',
@@ -392,6 +405,7 @@ module.exports = function (grunt) {
         'removelogging',
         'uglify',
         'copy:dist',
+        'replace',
         'rev',
         'usemin',
         'htmlmin'

@@ -68,6 +68,8 @@
             clearSrc: clearSrc
         };
         window.p = printStdout;
+        window.log.info('Hello!');
+        setSrc('#sample1');
     };
     $(init);
 }(jQuery, this));
