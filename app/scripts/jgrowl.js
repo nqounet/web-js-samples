@@ -3,14 +3,13 @@
     var
     console,
     Grapnel,
-    router,
     resetHash = function(){
         window.location.hash = 'index';
     },
     setVars = function(){
         console = window.console;
         Grapnel = window.Grapnel;
-        router = {
+        var routes = {
             hello: function(req){
                 console.debug('req:', req);
                 $.jGrowl('Hello World!');
@@ -32,7 +31,7 @@
                 resetHash();
             }
         };
-        Grapnel.listen(router);
+        Grapnel.listen(routes);
     },
     init = function(){
         setVars();
