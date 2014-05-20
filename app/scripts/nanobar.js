@@ -24,7 +24,7 @@
         router.get('plus/:num', function(req){
             var num = req.params.num - 0;
             nanobar.go(incrementCount(num));
-            window.location.hash = 'index';
+            router.anchor.clear();
         });
         router.get('finish', finish);
         timer = setInterval(function(){
