@@ -2,6 +2,7 @@
   "name": "blackbirdjs",
   "private": true,
   "dependencies": {
+    "nanobar": "~0.2.0",
     "jquery": "~2.1.1",
     "bootstrap": "~3.1.1",
     "jgrowl": "~1.3.0",

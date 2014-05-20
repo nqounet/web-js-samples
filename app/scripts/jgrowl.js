@@ -39,17 +39,19 @@
         $(document).on('ready', function(){
             resetHash();
             $.jGrowl.defaults.log = function(e,m,o) {
-                var log = "<div><strong>#" + $(e).attr('id') + "</strong> <em>" + (new Date()).getTime() + "</em>: " + m + " (" + o.theme + ")</div>";
+                var log = '<div><strong>#' + $(e).attr('id') + '</strong> <em>' + (new Date()).getTime() + '</em>: ' + m + ' (' + o.theme + ')</div>';
                 $('#stdout').append($.parseHTML(log));
             };
             $.jGrowl('Welbome to jGrowl world.');
             $('#send-text').on('keypress', function(e){
                 var $el = $(e.currentTarget),
                 key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
-                if(key == 13) {
+                if(key === 13) {
                     e.preventDefault();
-                    $.jGrowl($el.val());
-                    $el.val('');
+                    if (0 < $el.val().length) {
+                        $.jGrowl($el.val());
+                        $el.val('');
+                    }
                 }
             });
         });

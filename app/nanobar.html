@@ -2,8 +2,8 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>JavaScript Samples | nqou.net</title>
-    <meta name="description" content="JavaScriptのサンプル集">
+    <title>nanobar.js | JavaScript Samples | nqou.net</title>
+    <meta name="description" content="シンプルだけどカッコいいプログレスバー、nanobar.jsを使ってみた">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" href="/favicon.ico">
     <!-- build:css styles/vendor.css -->
@@ -23,39 +23,66 @@
 <div class="container">
 
     <header>
-        <h1 class="page-header">JavaScript Samples</h1>
+        <h1 class="page-header">nanobar</h1>
         <ol class="breadcrumb">
           <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-          <li class="active">Samples</li>
+          <li><a href="./">Samples</a></li>
+          <li class="active">nanobar</li>
         </ol>
     </header>
 
-    <div class="list-group">
-        <a href="blackbird.html" class="list-group-item">
-            <h3 class="list-group-item-heading">Blackbird.js</h3>
-            <p class="list-group-item-text">Blackbird logging utility</p>
-        </a>
+<h2 class="page-header">nanobarに対するコマンド</h2>
+<div class="row">
+    <div class="col-sm-4 col-sm-offset-1">
+        <div class="list-group">
+            <a href="#plus/1" class="list-group-item">
+                <h3 class="list-group-item-heading">+1</h3>
+                <p class="list-group-item-text">プログレスバーを+1する</p>
+            </a>
+        </div>
     </div>
+    <div class="col-sm-4">
+        <div class="list-group">
+            <a href="#plus/10" class="list-group-item">
+                <h3 class="list-group-item-heading">+10</h3>
+                <p class="list-group-item-text">プログレスバーを+10する</p>
+            </a>
+        </div>
+    </div>
+</div><!-- /.row -->
+<div class="row">
+    <div class="col-sm-4 col-sm-offset-1">
+        <div class="list-group">
+            <a href="#plus/-1" class="list-group-item">
+                <h3 class="list-group-item-heading">-1</h3>
+                <p class="list-group-item-text">プログレスバーを-1する</p>
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="list-group">
+            <a href="#finish" class="list-group-item">
+                <h3 class="list-group-item-heading">Finish</h3>
+                <p class="list-group-item-text">完了する！</p>
+            </a>
+        </div>
+    </div>
+</div><!-- /.row -->
 
-    <div class="list-group">
-        <a href="jgrowl.html" class="list-group-item">
-            <h3 class="list-group-item-heading">jGrowl.js</h3>
-            <p class="list-group-item-text">jGrowl is an unobtrusive notification system for web applications.</p>
-        </a>
+<h2 class="page-header">ライブラリの情報など</h2>
+<div class="row">
+    <div class="col-sm-9">
+        <div class="well">
+            <a href="https://github.com/jacoborus/nanobar">jacoborus/nanobar</a>
+        </div>
     </div>
-
-    <div class="list-group">
-        <a href="nanobar.html" class="list-group-item">
-            <h3 class="list-group-item-heading">nanobar.js</h3>
-            <p class="list-group-item-text">Very very lighweight progress bars. No jQuery required.</p>
-        </a>
-    </div>
+</div><!-- /.row -->
 
     <footer>
         <h4>&copy; @nqounet <small class="version">{{pkg.version}}</small></h4>
     </footer>
 
-</div>
+</div><!-- /.container -->
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
