@@ -33,7 +33,7 @@ module.exports = function (grunt) {
         watch: {
             bower: {
                 files: ['bower.json'],
-                tasks: ['bowerInstall']
+                tasks: ['wiredep']
             },
             js: {
                 files: ['<%= config.app %>/scripts/{,*/}*.js'],
@@ -162,7 +162,7 @@ module.exports = function (grunt) {
         },
 
         // Automatically inject Bower components into the HTML file
-        bowerInstall: {
+        wiredep: {
             app: {
                 src: ['<%= config.app %>/*.html'],
                 exclude: []
@@ -325,6 +325,37 @@ module.exports = function (grunt) {
             prod: {}
         },
 
+        compress: {
+            all: {
+                options: {
+                    mode: 'gzip',
+                    level: 9
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.dist %>',
+                    dest: '<%= config.dist %>',
+                    src: ['**/*.js'],
+                    ext: '.js.gz',
+                    extDot: 'last'
+                },{
+                    expand: true,
+                    cwd: '<%= config.dist %>',
+                    dest: '<%= config.dist %>',
+                    src: ['**/*.css'],
+                    ext: '.css.gz',
+                    extDot: 'last'
+                },{
+                    expand: true,
+                    cwd: '<%= config.dist %>',
+                    dest: '<%= config.dist %>',
+                    src: ['**/*.html'],
+                    ext: '.html.gz',
+                    extDot: 'last'
+                }]
+            }
+        },
+
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
@@ -389,6 +420,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('deploy', [
         'build',
+        'compress:all',
         'rsync:prod'
     ]);
 
