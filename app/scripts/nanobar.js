@@ -33,10 +33,7 @@
     },
     init = function(){
         setVars();
-        $(document).on('readystatechange', function(){
-            nanobar.go(incrementCount(10));
-        });
-        $(document).on('ready', function(){
+        $(document).ready(function(){
             nanobar.go(incrementCount(20));
         });
         $(window).on('load', function(){

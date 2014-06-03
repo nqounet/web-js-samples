@@ -6,7 +6,8 @@
     "jquery": "~2.1.1",
     "bootstrap": "~3.1.1",
     "jgrowl": "~1.3.0",
-    "grapnel": "~0.4.2"
+    "grapnel": "~0.4.2",
+    "oboe": "~1.14.7"
   },
   "devDependencies": {}
 }

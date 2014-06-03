@@ -2,17 +2,14 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>jGrowl | JavaScript Samples | nqou.net</title>
-    <meta name="description" content="jQueryを使ったライブラリ（プラグイン）、jGrowlを使ってみた">
+    <title>Oboe.js | JavaScript Samples | nqou.net</title>
+    <meta name="description" content="JSONを逐次解析できるOboe.jsを使ってみた">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" href="/favicon.ico">
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css styles/jgrowl.css -->
-    <link rel="stylesheet" href="../bower_components/jgrowl/jquery.jgrowl.css" />
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
@@ -26,62 +23,54 @@
 <div class="container">
 
     <header>
-        <h1 class="page-header">jGrowl</h1>
+        <h1 class="page-header">Oboe.js</h1>
         <ol class="breadcrumb">
           <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
           <li><a href="./">Samples</a></li>
-          <li class="active">jGrowl</li>
+          <li class="active">Oboe.js</li>
         </ol>
     </header>
 
-<h2 class="page-header">jGrowlに対するコマンド</h2>
+<h2 class="page-header">JSONをAJAXで取得する</h2>
 <div class="row">
     <div class="col-sm-4 col-sm-offset-1">
         <div class="list-group">
-            <a href="#hello" class="list-group-item">
-                <h3 class="list-group-item-heading">Hello World</h3>
-                <p class="list-group-item-text">定番の「こんにちは世界」</p>
+            <a href="#zusaar" class="list-group-item">
+                <h3 class="list-group-item-heading">Zusaar</h3>
+                <p class="list-group-item-text">Zusaarの最新イベント情報を取得する</p>
             </a>
         </div>
     </div>
-    <div class="col-sm-4">
-        <div class="list-group">
-            <a href="#sticky" class="list-group-item">
-                <h3 class="list-group-item-heading">Sticky</h3>
-                <p class="list-group-item-text">勝手には消えません</p>
-            </a>
-        </div>
-    </div>
-</div><!-- /.row -->
-<div class="row">
     <div class="col-sm-4 col-sm-offset-1">
         <div class="list-group">
-            <a href="#header" class="list-group-item">
-                <h3 class="list-group-item-heading">Header</h3>
-                <p class="list-group-item-text">ヘッダを付けることもできます</p>
+            <a href="#zusaar/Perl" class="list-group-item">
+                <h3 class="list-group-item-heading">Zusaar : Perl</h3>
+                <p class="list-group-item-text">Zusaarで「Perl」で検索したイベント情報を取得する</p>
             </a>
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 col-sm-offset-1">
         <div class="list-group">
-            <a href="#life" class="list-group-item">
-                <h3 class="list-group-item-heading">Long Life</h3>
-                <p class="list-group-item-text">表示する時間を長くしたりも出来ます</p>
+            <a href="#zusaar/JavaScript" class="list-group-item">
+                <h3 class="list-group-item-heading">Zusaar : JavaScript</h3>
+                <p class="list-group-item-text">Zusaarで「JavaScript」で検索したイベント情報を取得する</p>
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-4 col-sm-offset-1">
+        <div class="list-group">
+            <a href="#zusaar/Swift" class="list-group-item">
+                <h3 class="list-group-item-heading">Zusaar : Swift</h3>
+                <p class="list-group-item-text">Zusaarで「Swift」で検索したイベント情報を取得する</p>
             </a>
         </div>
     </div>
 </div><!-- /.row -->
 
-<h2 class="page-header">フォームから使ってみる</h2>
+<h2 class="page-header">ログ</h2>
 <div class="row">
-    <div class="col-sm-9">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <input id="send-text" type="text" class="form-control" placeholder="文字を入力してEnterキーを押してください">
-                <h3>jGrowl Logs</h3>
-                <pre id="stdout"></pre>
-            </div>
-        </div>
+    <div class="container">
+        <pre class="well" id="stdout">こちらに取得した情報が出ます</pre>
     </div>
 </div><!-- /.row -->
 
@@ -90,7 +79,8 @@
     <div class="col-sm-9">
         <div class="panel panel-default">
             <div class="panel-body">
-                <a href="https://github.com/stanlemon/jGrowl">stanlemon/jGrowl - github</a>
+                <p><a href="http://oboejs.com/">Streaming JSON loading for Node and browsers : Oboe.js</a></p>
+                <p><a href="https://github.com/jimhigson/oboe.js">jimhigson/oboe.js</a></p>
             </div>
         </div>
     </div>
@@ -116,8 +106,8 @@
     <!-- build:js scripts/nanobar.js -->
     <script src="scripts/nanobar.js"></script>
     <!-- endbuild -->
-    <!-- build:js scripts/jgrowl.js -->
-    <script src="scripts/jgrowl.js"></script>
+    <!-- build:js scripts/oboe.js -->
+    <script src="scripts/oboe.js"></script>
     <!-- endbuild -->
 
     <script>
