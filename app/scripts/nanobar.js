@@ -43,7 +43,7 @@
         router = new window.Grapnel();
         router.get('plus/:num', function(req){
             var num = req.params.num - 0;
-            increment(num);
+            nanobar.go(incrementCount(num));
             router.anchor.clear();
         });
         router.get('finish', finish);
