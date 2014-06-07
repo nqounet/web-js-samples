@@ -7,11 +7,31 @@
     timer,
     resetCount = function(){
         count = 0;
+        if(timer !== undefined) {
+            clearInterval(timer);
+            timer = undefined;
+        }
     },
     incrementCount = function(add){
         count += add;
         if (count > 99) { count = 99; }
         return count;
+    },
+    reset = function(){
+        nanobar.go(0);
+        resetCount();
+    },
+    setColor = function(args){
+        finish();
+        nanobar = new window.Nanobar({bg: args});
+    },
+    increment = function(args){
+        nanobar.go(incrementCount(args));
+        if(timer === undefined) {
+            timer = setInterval(function(){
+                increment(1);
+            }, 100);
+        }
     },
     finish = function(){
         nanobar.go(100);
@@ -23,23 +43,25 @@
         router = new window.Grapnel();
         router.get('plus/:num', function(req){
             var num = req.params.num - 0;
-            nanobar.go(incrementCount(num));
+            increment(num);
             router.anchor.clear();
         });
         router.get('finish', finish);
-        timer = setInterval(function(){
-            nanobar.go(incrementCount(1));
-        }, 50);
     },
     init = function(){
         setVars();
         $(document).ready(function(){
-            nanobar.go(incrementCount(20));
+            increment(20);
         });
         $(window).on('load', function(){
             finish();
-            clearInterval(timer);
         });
+        window.bar = {
+            setColor: setColor,
+            increment: increment,
+            reset: reset,
+            finish: finish
+        };
     };
     init();
 }(jQuery, window, document));

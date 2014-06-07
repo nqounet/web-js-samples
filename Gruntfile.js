@@ -165,7 +165,7 @@ module.exports = function (grunt) {
         wiredep: {
             app: {
                 src: ['<%= config.app %>/*.html'],
-                exclude: []
+                exclude: ['lscache.min.js']
             }
         },
 
@@ -282,7 +282,7 @@ module.exports = function (grunt) {
         removelogging: {
             options: {
                 namespace: ['console'],
-                methods: ['trace', 'debug']
+                methods: ['trace', 'debug', 'info']
             },
             dist: {
                 src: '.tmp/concat/scripts/*.js'

@@ -70,7 +70,7 @@
 <h2 class="page-header">ログ</h2>
 <div class="row">
     <div class="container">
-        <pre class="well" id="stdout">こちらに取得した情報が出ます</pre>
+        <div class="well" id="stdout">こちらに取得した情報が出ます</div>
     </div>
 </div><!-- /.row -->
 
@@ -92,6 +92,12 @@
 
 </div><!-- /.container -->
 
+<div class="js-templates" data-type="event">
+    <dt><a href="{{event_url}}">{{title}}</a></dt>
+    {{#catch}}<dd>{{catch}}</dd>{{/catch}}
+    {{^catch}}<dd class="text-muted">キャッチフレーズなし</dd>{{/catch}}
+</div>
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
@@ -100,6 +106,8 @@
     <script src="../bower_components/jgrowl/jquery.jgrowl.js"></script>
     <script src="../bower_components/grapnel/src/grapnel.js"></script>
     <script src="../bower_components/oboe/dist/oboe-browser.js"></script>
+    <script src="../bower_components/mustache/mustache.js"></script>
+    <script src="../bower_components/lscache/lscache.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
