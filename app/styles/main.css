@@ -13,6 +13,11 @@ body {
 footer {
     margin-bottom: 900px;
 }
+#owl-carousel img {
+    width: 99%;
+    height: auto;
+    display: block;
+}
 .js-templates {
     display: none !important;
 }
