@@ -1,20 +1,18 @@
+@charset "UTF-8";
 body {
     background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
+    font-family: Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; /* [CSSでのフォント指定について考える（2014年） - DTP Transit（Mac OS X, OS X Mavericks, Web Fonts, Web制作, iPhone, フォント）](http://www.dtp-transit.jp/misc/web/post_1881.html) */
 }
-
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
 }
-
 footer {
     margin-bottom: 900px;
 }
-
 .js-templates {
     display: none !important;
 }
