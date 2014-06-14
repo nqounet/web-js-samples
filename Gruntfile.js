@@ -78,6 +78,7 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function(connect) {
                         return [
+                            require('grunt-connect-proxy/lib/utils').proxyRequest,
                             connect.static('.tmp'),
                             connect().use('/bower_components', connect.static('./bower_components')),
                             connect.static(config.app)
@@ -85,6 +86,13 @@ module.exports = function (grunt) {
                     }
                 }
             },
+            proxies: [{
+                context: '/api',
+                host: 'localhost',
+                port: 3000,
+                https: false,
+                changeOrigin: false
+            }],
             test: {
                 options: {
                     open: false,
@@ -381,6 +389,7 @@ module.exports = function (grunt) {
             'clean:server',
             'concurrent:server',
             'autoprefixer',
+            'configureProxies:server',
             'connect:livereload',
             'watch'
         ]);
