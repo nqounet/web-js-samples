@@ -1,9 +1,8 @@
-namespace deploy => sub {
-    desc 'deploy to production';
-    task production => sub {
-        sh q{grunt release};
-        sh q{grunt deploy};
-    };
+desc 'build for production';
+task build => sub {
+    sh q{grunt release};
+    sh q{grunt build};
+    sh q{grunt compress:all};
 };
 
 task default => sub { sh q{daiku -T} };
