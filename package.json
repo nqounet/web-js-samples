@@ -1,7 +1,11 @@
 {
   "name": "blackbirdjs",
-  "version": "0.2.1",
-  "dependencies": {},
+  "version": "0.2.2",
+  "dependencies": {
+    "imagemin-gifsicle": "^5.2.0",
+    "imagemin-optipng": "^5.2.1",
+    "imagemin-pngquant": "^5.0.1"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^0.7.3",
